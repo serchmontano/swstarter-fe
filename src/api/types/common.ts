@@ -36,4 +36,16 @@ export interface ResourcesResponse {
   resources: string[]
 }
 
+export interface BatchItem {
+  id: number
+  name: string
+  resource_type: ResourceType
+}
+
+export interface BatchResponse {
+  success: boolean
+  count: number
+  results: BatchItem[]
+}
+
 export type ResourceType = 'people' | 'films'

@@ -31,7 +31,7 @@ export const Typography = ({ type, variant = 'primary', textColor, children, cla
   const fontWeightClass = getFontWeightClass();
   
   return (
-    <span 
+    <p 
       className={`${fontSizeClass} ${fontWeightClass} leading-normal tracking-normal ${className}`}
       style={{
         color,
@@ -41,6 +41,6 @@ export const Typography = ({ type, variant = 'primary', textColor, children, cla
       }}
     >
       {children}
-    </span>
+    </p>
   );
 };
