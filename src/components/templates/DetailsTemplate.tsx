@@ -19,7 +19,7 @@ export const DetailsTemplate = ({
   resourceType 
 }: DetailsTemplateProps) => {
   return (
-    <div className="bg-[#ededed] min-h-screen">
+    <div className="bg-[#ededed] h-screen flex flex-col">
       <Header />
       <Container>
         <DetailsPanel 

@@ -24,9 +24,9 @@ export const SearchTemplate = ({
   onSeeDetails
 }: SearchTemplateProps) => {
   return (
-    <div className="bg-[#ededed] min-h-screen">
+    <div className="bg-[#ededed] h-screen flex flex-col">
       <Header />
-      <Container>
+      <Container className='pt-0 sm:pt-4'>
         <div className="flex gap-4 items-start">
           <SearchPanel
             searchType={searchType}

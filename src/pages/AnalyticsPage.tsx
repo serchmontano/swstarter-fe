@@ -1,14 +1,21 @@
-import { Header } from '../components/molecules';
-import { Container } from '../components/atoms';
+import { useEffect } from 'react';
+import toast from 'react-hot-toast';
+import { useStatistics } from '../api/hooks';
+import { AnalyticsTemplate } from '../components/templates';
 
 export const AnalyticsPage = () => {
+  const { data, loading, error } = useStatistics();
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  }, [error]);
+
   return (
-    <div className="bg-[#ededed] min-h-screen">
-      <Header />
-      <Container>
-        <h1>Analytics Dashboard</h1>
-        <p>View statistics and analytics</p>
-      </Container>
-    </div>
-  )
+    <AnalyticsTemplate 
+      data={data?.data || null} 
+      isLoading={loading} 
+    />
+  );
 }
