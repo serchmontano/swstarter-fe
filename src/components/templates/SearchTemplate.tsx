@@ -40,15 +40,13 @@ export const SearchTemplate = ({
               onSubmit={onSubmit}
             />
           </div>
-          {hasResults && (
-            <div className="w-full md:w-[60%]">
-              <ResultsPanel
-                results={displayResults}
-                isLoading={isDelayedLoading}
-                onSeeDetails={onSeeDetails}
-              />
-            </div>
-          )}
+          <div className={hasResults ? 'w-full md:w-[60%]' : 'hidden md:block md:w-[60%]'}>
+            <ResultsPanel
+              results={displayResults}
+              isLoading={isDelayedLoading}
+              onSeeDetails={onSeeDetails}
+            />
+          </div>
         </div>
       </Container>
     </div>
