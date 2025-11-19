@@ -19,7 +19,7 @@ export const SearchPanel = ({
   onSubmit
 }: SearchPanelProps) => {
   return (
-    <Card className="w-[40%]">
+    <Card className="w-full h-full md:h-auto">
       <SearchTypeSelector 
         searchType={searchType}
         onSearchTypeChange={onSearchTypeChange}

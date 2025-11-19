@@ -21,7 +21,7 @@ export const DetailsTemplate = ({
   return (
     <div className="bg-[#ededed] h-screen flex flex-col">
       <Header />
-      <Container>
+      <Container className='py-0 md:py-4'>
         <DetailsPanel 
           data={data} 
           relatedData={relatedData} 

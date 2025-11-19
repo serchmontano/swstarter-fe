@@ -26,16 +26,14 @@ export const DetailsPanel = ({
 
   if (isLoading) {
     return (
-      <Card className="w-full min-h-96 flex flex-col justify-between">
-        <div className="flex flex-col gap-4">
-          <Typography type="placeholder">Fetching data...</Typography>
-          <div className="flex flex-row gap-12">
-            <div className="w-full">
-              <Typography type="placeholder">Loading details...</Typography>
-            </div>
-            <div className="w-full">
-              <Typography type="placeholder">Loading related items...</Typography>
-            </div>
+      <Card className="w-full h-full md:h-auto flex flex-col">
+        <Typography type="placeholder" className="mb-4">Fetching data...</Typography>
+        <div className="flex flex-col md:flex-row gap-4 md:gap-12 flex-1 overflow-y-auto">
+          <div className="w-full">
+            <Typography type="placeholder">Loading details...</Typography>
+          </div>
+          <div className="w-full">
+            <Typography type="placeholder">Loading related items...</Typography>
           </div>
         </div>
         <Button className="self-start mt-4" onClick={onBackToSearch}>
@@ -47,13 +45,11 @@ export const DetailsPanel = ({
 
   if (!data) {
     return (
-      <Card className="w-full min-h-96 flex flex-col justify-between">
-        <div className="flex flex-col gap-4">
-          <Typography type="placeholder">No data available</Typography>
-          <Typography type="paragraph">
-            The requested resource could not be found or an error occurred.
-          </Typography>
-        </div>
+      <Card className="w-full h-full md:h-auto flex flex-col">
+        <Typography type="placeholder" className="mb-4">No data available</Typography>
+        <Typography type="paragraph" className="flex-1">
+          The requested resource could not be found or an error occurred.
+        </Typography>
         <Button className="self-start mt-4" onClick={onBackToSearch}>
           Back to search
         </Button>
@@ -62,19 +58,17 @@ export const DetailsPanel = ({
   }
 
   return (
-    <Card className="w-full min-h-96 flex flex-col justify-between">
-      <div className="flex flex-col gap-4">
-        <Typography type="title" variant="primary">
-          {(data as any)?.name || (data as any)?.title}
-        </Typography>
-        <div className="flex flex-row gap-12">
-          <DetailInfo data={data} resourceType={resourceType} />
-          <RelatedItemsList 
-            items={relatedData} 
-            resourceType={resourceType}
-            onItemClick={handleItemClick}
-          />
-        </div>
+    <Card className="w-full h-full md:h-auto flex flex-col">
+      <Typography type="title" variant="primary" className="mb-4">
+        {(data as any)?.name || (data as any)?.title}
+      </Typography>
+      <div className="flex flex-col md:flex-row gap-4 md:gap-12 flex-1 overflow-y-auto">
+        <DetailInfo data={data} resourceType={resourceType} />
+        <RelatedItemsList 
+          items={relatedData} 
+          resourceType={resourceType}
+          onItemClick={handleItemClick}
+        />
       </div>
       <Button className="self-start mt-4" onClick={onBackToSearch}>
         Back to search

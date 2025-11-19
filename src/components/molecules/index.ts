@@ -4,3 +4,6 @@ export { SearchForm } from './SearchForm';
 export { ResultItem } from './ResultItem';
 export { DetailInfo } from './DetailInfo';
 export { RelatedItemsList } from './RelatedItemsList';
+export { StatCard } from './StatCard';
+export { ProgressItem } from './ProgressItem';
+export { SectionHeader } from './SectionHeader';

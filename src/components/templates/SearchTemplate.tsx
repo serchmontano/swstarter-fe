@@ -23,24 +23,32 @@ export const SearchTemplate = ({
   onSubmit,
   onSeeDetails
 }: SearchTemplateProps) => {
+  const hasResults = displayResults && displayResults.length > 0;
+
   return (
-    <div className="bg-[#ededed] h-screen flex flex-col">
+    <div className="bg-white md:bg-[#ededed] h-screen flex flex-col">
       <Header />
-      <Container className='pt-0 sm:pt-4'>
-        <div className="flex gap-4 items-start">
-          <SearchPanel
-            searchType={searchType}
-            searchValue={searchValue}
-            isLoading={isDelayedLoading}
-            onSearchTypeChange={onSearchTypeChange}
-            onSearchValueChange={onSearchValueChange}
-            onSubmit={onSubmit}
-          />
-          <ResultsPanel
-            results={displayResults}
-            isLoading={isDelayedLoading}
-            onSeeDetails={onSeeDetails}
-          />
+      <Container className='py-0 md:py-4'>
+        <div className="flex flex-col md:flex-row gap-4 md:items-start h-full md:h-auto">
+          <div className={hasResults ? 'w-full md:w-[40%]' : 'w-full md:w-[40%] h-full md:h-auto'}>
+            <SearchPanel
+              searchType={searchType}
+              searchValue={searchValue}
+              isLoading={isDelayedLoading}
+              onSearchTypeChange={onSearchTypeChange}
+              onSearchValueChange={onSearchValueChange}
+              onSubmit={onSubmit}
+            />
+          </div>
+          {hasResults && (
+            <div className="w-full md:w-[60%]">
+              <ResultsPanel
+                results={displayResults}
+                isLoading={isDelayedLoading}
+                onSeeDetails={onSeeDetails}
+              />
+            </div>
+          )}
         </div>
       </Container>
     </div>
