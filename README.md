@@ -16,6 +16,8 @@ Clean React + TypeScript + Vite starter project with Atomic Design structure.
 
 ## Getting Started
 
+### Local Development (without Docker)
+
 ```bash
 # Install dependencies
 yarn install
@@ -29,6 +31,45 @@ yarn build
 # Preview production build
 yarn preview
 ```
+
+### Docker Development
+
+```bash
+# Build and start all services (frontend, backend, MySQL, Redis)
+docker-compose up -d --build
+
+# Start services (without rebuilding)
+docker-compose up -d
+
+# Stop all services
+docker-compose down
+
+# View logs from all services
+docker-compose logs -f
+
+# View logs from frontend only
+docker-compose logs -f frontend
+
+# Restart frontend service
+docker-compose restart frontend
+
+# Rebuild frontend after dependency changes
+docker-compose up -d --build frontend
+
+# Execute commands inside frontend container
+docker-compose exec frontend npm install <package-name>
+docker-compose exec frontend npm run build
+
+# Remove all containers and volumes (clean slate)
+docker-compose down -v
+
+# Access frontend shell
+docker-compose exec frontend sh
+```
+
+**Access URLs:**
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:8000
 
 ## Project Structure (Atomic Design)
 
