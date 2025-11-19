@@ -1,5 +1,5 @@
 interface TypographyProps {
-  type?: 'title' | 'paragraph' | 'placeholder';
+  type?: 'title' | 'subtitle' | 'paragraph' | 'placeholder';
   variant?: 'primary' | 'secondary';
   textColor?: string;
   children: React.ReactNode;
@@ -16,6 +16,7 @@ export const Typography = ({ type, variant = 'primary', textColor, children, cla
   
   const getFontSizeClass = () => {
     if (type === 'title') return 'text-lg';
+    if (type === 'subtitle') return 'text-md';
     if (type === 'paragraph' || type === 'placeholder') return 'text-sm';
     return 'text-base';
   };
